@@ -1,0 +1,179 @@
+﻿CREATE DATABASE Station;
+-------------------------------
+CREATE TABLE Besättning
+-------------------------------
+CREATE TABLE Besättning (
+    Besättning_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Förnamn VARCHAR(45) NOT NULL,
+    Efternamn VARCHAR(45) NOT NULL,
+	Planet VARCHAR (45) NOT NULL,
+	Personnr DATE NOT NULL,
+	Kön VARCHAR (45) NOT NULL,
+	Livstatus TINYINT(1) NOT NULL,
+	Lön DOUBLE NOT NULL
+);
+----------------------------------------------------
+INSERT INTO Besättning VALUES
+('NULL', 'KALLE', 'ANKA', 'JUPITER', '1978-08-18', 'Man', '0', '15000'),
+('NULL', 'PING', 'PONG', 'MARS', '1979-09-19', 'Kvinna', '0', '15000'),
+('NULL', 'MUSSE', 'PIGG', 'JUPITER', '1980-08-18', 'Man', '0','15000'),
+('NULL', 'LÅNG', 'BEN', 'MARS', '1978-08-18', 'Man', '0','15000'),
+('NULL', 'SMURFA', 'BLUE', 'JUPITER', '1979-09-19', 'Kvinna', '0','15000'),
+('NULL', 'TOM', 'MUS', 'MARS', '1980-08-18', 'Kvinna', '0','15000'),
+('NULL', 'JERRY', 'KATT', 'JUPITER', '1978-08-18', 'Man', '0','15000'),
+('NULL', 'X', 'MEN', 'MARS', '1978-08-18', 'Kvinna', '0','15000'),
+('NULL', 'KING', 'KONG', 'JUPITER', '1980-08-18', 'Man', '0','15000'),
+('NULL', 'X', 'WOMEN', 'MARS', '1978-08-18', 'Kvinna', '0','15000');
+
+INSERT INTO Besättning VALUES
+('NULL','Angelica', 'Gaintatzi', 'JORDEN', '1986-05-15', 'Kvinna', '1', '16000'),
+('NULL','David', 'Szmak', 'JORDEN', '1982-02-18', 'Man', '1', '17000'),
+('NULL', 'Anton', 'Hallström', 'JORDEN', '1986-05-15', 'Man', '1', '18000'),
+('NULL','Carlos', 'Demirovic', 'JORDEN', '1977-05-15', 'Man',  '1', '19000'),
+('NULL','Malena', 'Brinkheden', 'JORDEN', '1977-05-15', 'Kvinna', '1', '20000'),
+('NULL','Norbert', 'Czuchra', 'JORDEN', '1975-12-15', 'Man',  '1', '21000'),
+('NULL','Dragana', 'Jankovic', 'JORDEN', '1977-05-15', 'Kvinna',  '1', '22000'),
+('NULL','Ivan', 'Lundberg', 'JORDEN', '1976-05-15', 'Man',  '1', '23000'),
+('NULL','Tim', 'Nilsson', 'JORDEN', '1975-05-15', 'Man',  '1', '24000'),
+('NULL','Anders', 'Rochester', 'JORDEN', '1979-06-19', 'Man',  '1', '25000'),
+('NULL','Eric', 'Sandström', 'JORDEN', '1980-03-18', 'Man', '1', '26000'),
+('NULL','Nicklas', 'Uhde', 'JORDEN', '1978-02-18', 'Man', '1', '27000');
+----------------------------------------------------
+AVDELNING FOREIGN KEY
+----------------------------------------------------
+CREATE TABLE Avdelningar (
+    Namn varchar(45) NOT NULL,
+	Besättning_ID INT UNSIGNED NOT NULL,
+	Avdelning_ID INT UNSIGNED NOT NULL 
+);
+--------------------------
+INSERT INTO Avdelningar VALUES
+
+('Armén', 1, '1'),
+
+('Flottan', 2, '2'),
+
+('Armén', 3, '1'),
+
+('Flottan',  4,'2'),
+
+('Armén', 5, '1'),
+
+('Flottan',  6, '2'),
+
+('Armén', 7, '1'),
+
+('Flottan',  8, '2'),
+
+('Armén', 9, '1'),
+
+('Flottan',  10, '2'),
+
+('Flottan',  11, '2'),
+
+('Flygvapnet', 12, '3'),
+
+('Sjukvård', 13, '4'),
+
+('Flottan',  14, '2'),
+
+('Flygvapnet', 15, '3'),
+
+('Sjukvård', 16, '4'),
+
+('Flottan',  17, '2'),
+
+('Flygvapnet', 18, '3'),
+
+('Sjukvård', 19, '4'),
+
+('Flottan', 20, '2'),
+
+('Flygvapnet', 21, '3'),
+
+('Flygvapnet', 22, '3');
+-------------------------
+Planet FOREIGN KEY
+----------------------------------------------------
+CREATE TABLE Rang (
+    Besättning_ID INT UNSIGNED NOT NULL,  
+	Avdelning_ID INT UNSIGNED NOT NULL,  
+    Namn varchar(45) NOT NULL,
+	PRIMARY KEY	(Besättning_ID, Avdelning_ID)
+);
+
+INSERT INTO RANG VALUES
+('1', '1', 'Menig'), 
+('2', '1', 'Menig'), 
+('3', '1', 'Menig'), 
+('4', '1', 'Menig'), 
+('5', '1', 'Menig'), 
+('6', '1', 'Menig'), 
+('7', '1', 'Menig'), 
+('8', '1', 'Menig'), 
+('9', '1', 'Menig'), 
+('10', '2', 'Kapten'),
+('11', '2', 'Kapten'), 
+('12', '3', 'Major'), 
+('13', '4', 'Läkare'), 
+('14', '2', 'Kapten'), 
+('15', '3', 'Major'), 
+('16', '4', 'Läkare'), 
+('17', '2', 'Kapten'), 
+('18', '3', 'Major'), 
+('19', '4', 'Läkare'), 
+('20', '2', 'Kapten'), 
+('21', '3', 'Major'),
+('22', '4', 'Läkare');
+---------------------------------------------------
+ BESATTNING_ID INT UNSIGNED NOT NULL,
+    Besättning_ID INT UNSIGNED NOT NULL,  
+    RANG varchar(30) NOT NULL,
+	PRIMARY KEY	(BESATTNING_ID, AVDELNING_ID)
+);
+----------------------------------------------------
+INSERT INTO Rang VALUES
+('Menig', '1', 'NULL'), 
+('Menig', '2', 'NULL'), 
+('Menig', '3', 'NULL'), 
+('Menig', '4', 'NULL'), 
+('Menig', '5', 'NULL'), 
+('Menig', '6', 'NULL'), 
+('Menig', '7', 'NULL'), 
+('Menig', '8', 'NULL'), 
+('Menig', '9', 'NULL'), 
+('Menig', '10','NULL'),
+('Kapten', '11', 'NULL'), 
+('Major', '12', 'NULL'), 
+('Doctor', '13', 'NULL'), 
+('Överste', '14', 'NULL'), 
+('Sergeant', '15', 'NULL'), 
+('Doctor', '16', 'NULL'), 
+('Sergeant', '17', 'NULL'), 
+('Kapten', '18', 'NULL'), 
+('Doctor', '19', 'NULL'), 
+('Kapten', '20', 'NULL'),
+('Major', '21', 'NULL'),
+('Major', '22', 'NULL');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
