@@ -1,4 +1,4 @@
-﻿CREATE DATABASE Station;
+CREATE DATABASE Station;
 -------------------------------
 CREATE TABLE Besättning
 -------------------------------
@@ -12,6 +12,21 @@ CREATE TABLE Besättning (
 	Livstatus TINYINT(1) NOT NULL,
 	Lön DOUBLE NOT NULL
 );
+
+
+INSERT INTO Patient VALUES
+(’NULL’, 'KALLE', 'ANKA’),
+('NULL', 'PING', 'PONG'),
+('NULL', 'MUSSE', 'PIGG'),
+('NULL', 'LÅNG', 'BEN'),
+('NULL', 'SMURFA', 'BLUE'’),
+('NULL', 'TOM', 'MUS'),
+('NULL', 'JERRY', 'KATT'),
+('NULL', 'X', 'MEN'),
+('NULL', ''X', ’Women’),
+('NULL', ’King’, ’Kong’);
+
+
 ----------------------------------------------------
 INSERT INTO Besättning VALUES
 ('NULL', 'KALLE', 'ANKA', 'JUPITER', '1978-08-18', 'Man', '0', '15000'),
