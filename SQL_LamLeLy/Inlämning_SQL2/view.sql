@@ -1,4 +1,4 @@
-SQL Inlämning 2 Lam Le Ly
+-- View SQL Inlämning 2 Lam Le Ly
 
 --
 -- Antal insjukna i olika sjukdom.
@@ -33,10 +33,11 @@ VIEW `antal_patient_diagnos` AS
         `diagnos`.`diagnos_kategori` AS `beskrivning`
     FROM
         ((`diagnos`
-        JOIN `patient_diagnos` ON ((`diagnos`.`idDiagnos` = `patient_diagnos`.`idDiagnos`)))
-        JOIN `patient` ON ((`patient`.`idPatient` = `patient_diagnos`.`idPatient`)))
+        JOIN `patient_diagnos` ON ((`diagnos`.`idDiagnos` = `patient_diagnos`.`fk_Diagnos_idDiagnos`)))
+        JOIN `patient` ON ((`patient`.`idPatient` = `patient_diagnos`.`fk_Patient_idPatient`)))
     GROUP BY `diagnos`.`diagnos_kategori`
-    
+
+
 --
 -- Antal insjukna patienter.
 --
@@ -64,7 +65,7 @@ VIEW `rabies_medicin` AS
     WHERE
         (`diagnos`.`diagnos_namn` LIKE 'Rabies')
         
- --
+--
 -- Visa olika mediciner och dosering för en viss sjukdom Malaria_medicin
 --       
 /*
@@ -103,27 +104,18 @@ VIEW `Alergi_medicin` AS
         (`sjukhus`.`diagnos`.`diagnos_namn` LIKE 'Alergi')
 */
 
-
 --
 -- Vilka sjuksköterskor som behandlar en viss patient.
 --
 CREATE VIEW `sjukhus`.`patient_skoterska` AS
-
     SELECT 
         `sjukhus`.`patient`.`idPatient` AS `patient`,
-        
         `sjukhus`.`skoterska`.`skoterska_namn` AS `skoterska_namn`,
-        
         `sjukhus`.`skoterska`.`skoterska_efternamn` AS `skoterska_efternamn`
-   
-   FROM
+    FROM
         ((`sjukhus`.`patient`
-        
-          JOIN `sjukhus`.`skoterska_patient` ON 
-          ((`sjukhus`.`patient`.`idPatient` = `sjukhus`.`skoterska_patient`.`fk_Patient_idPatient`)))
-
-JOIN `sjukhus`.`skoterska` ON ((`sjukhus`.`skoterska`.`idSkoterska` = `sjukhus`.`skoterska_patient`.`fk_idSkoterska`)))
-
+        JOIN `sjukhus`.`skoterska_patient` ON ((`sjukhus`.`patient`.`idPatient` = `sjukhus`.`skoterska_patient`.`fk_Patient_idPatient`)))
+        JOIN `sjukhus`.`skoterska` ON ((`sjukhus`.`skoterska`.`idSkoterska` = `sjukhus`.`skoterska_patient`.`fk_idSkoterska`)))
 
 --
 -- Visa vilka patienter behandlas av en läkare.
