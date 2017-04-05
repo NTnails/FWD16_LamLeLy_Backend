@@ -16,31 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Patient_has_Diagnos`
+-- Table structure for table `Skoterska_Patient`
 --
 
-DROP TABLE IF EXISTS `Patient_has_Diagnos`;
+DROP TABLE IF EXISTS `Skoterska_Patient`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Patient_has_Diagnos` (
-  `idPatient` int(11) NOT NULL,
-  `idDiagnos` int(11) NOT NULL,
-  PRIMARY KEY (`idPatient`,`idDiagnos`),
-  KEY `fk_Patient_has_Diagnos_Diagnos1_idx` (`idDiagnos`),
-  KEY `fk_Patient_has_Diagnos_Patient1_idx` (`idPatient`),
-  CONSTRAINT `fk_Patient_has_Diagnos_Diagnos1` FOREIGN KEY (`idDiagnos`) REFERENCES `Diagnos` (`idDiagnos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Patient_has_Diagnos_Patient1` FOREIGN KEY (`idPatient`) REFERENCES `Patient` (`idPatient`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE `Skoterska_Patient` (
+  `fk_idSkoterska` int(11) NOT NULL,
+  `fk_Patient_idPatient` int(11) NOT NULL,
+  `Skoterska_Patientcol` int(11) NOT NULL,
+  PRIMARY KEY (`Skoterska_Patientcol`),
+  KEY `fk_Skoterska_has_Patient_Patient1_idx` (`fk_Patient_idPatient`),
+  KEY `fk_Skoterska_has_Patient_Skoterska1_idx` (`fk_idSkoterska`),
+  CONSTRAINT `fk_Skoterska_has_Patient_Patient1` FOREIGN KEY (`fk_Patient_idPatient`) REFERENCES `Patient` (`idPatient`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Skoterska_has_Patient_Skoterska1` FOREIGN KEY (`fk_idSkoterska`) REFERENCES `Skoterska` (`idSkoterska`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Patient_has_Diagnos`
+-- Dumping data for table `Skoterska_Patient`
 --
 
-LOCK TABLES `Patient_has_Diagnos` WRITE;
-/*!40000 ALTER TABLE `Patient_has_Diagnos` DISABLE KEYS */;
-INSERT INTO `Patient_has_Diagnos` VALUES (3,1),(6,1),(7,1),(1,2),(2,2),(5,2),(8,2),(4,3);
-/*!40000 ALTER TABLE `Patient_has_Diagnos` ENABLE KEYS */;
+LOCK TABLES `Skoterska_Patient` WRITE;
+/*!40000 ALTER TABLE `Skoterska_Patient` DISABLE KEYS */;
+INSERT INTO `Skoterska_Patient` VALUES (3,8,1),(2,7,2),(1,6,3),(3,5,4),(1,4,5),(2,1,6),(3,2,7),(2,3,8);
+/*!40000 ALTER TABLE `Skoterska_Patient` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-04-02 23:23:08
+-- Dump completed on 2017-04-05 14:14:59

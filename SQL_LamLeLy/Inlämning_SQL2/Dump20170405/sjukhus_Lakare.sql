@@ -16,28 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Medicin`
+-- Table structure for table `Lakare`
 --
 
-DROP TABLE IF EXISTS `Medicin`;
+DROP TABLE IF EXISTS `Lakare`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Medicin` (
-  `idMedicin` int(11) NOT NULL AUTO_INCREMENT,
-  `medicin_namn` varchar(225) NOT NULL,
-  `medicin_doz` int(11) NOT NULL,
-  PRIMARY KEY (`idMedicin`)
+CREATE TABLE `Lakare` (
+  `idLakare` int(11) NOT NULL AUTO_INCREMENT,
+  `lakare_namn` varchar(45) NOT NULL,
+  `lakare_efternamn` varchar(45) NOT NULL,
+  PRIMARY KEY (`idLakare`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Medicin`
+-- Dumping data for table `Lakare`
 --
 
-LOCK TABLES `Medicin` WRITE;
-/*!40000 ALTER TABLE `Medicin` DISABLE KEYS */;
-INSERT INTO `Medicin` VALUES (1,'Alvedon',100),(2,'Ipren',200),(3,'Panodin',150);
-/*!40000 ALTER TABLE `Medicin` ENABLE KEYS */;
+LOCK TABLES `Lakare` WRITE;
+/*!40000 ALTER TABLE `Lakare` DISABLE KEYS */;
+INSERT INTO `Lakare` VALUES (1,'Le','Ly'),(2,'David','Szmak'),(3,'Carlos',' Demirovic');
+/*!40000 ALTER TABLE `Lakare` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-04-02 23:23:07
+-- Dump completed on 2017-04-05 14:14:59

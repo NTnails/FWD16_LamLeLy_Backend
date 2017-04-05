@@ -16,28 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Lakare`
+-- Table structure for table `Diagnos`
 --
 
-DROP TABLE IF EXISTS `Lakare`;
+DROP TABLE IF EXISTS `Diagnos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Lakare` (
-  `idLakare` int(11) NOT NULL AUTO_INCREMENT,
-  `namn` varchar(45) NOT NULL,
-  `efternamn` varchar(45) NOT NULL,
-  PRIMARY KEY (`idLakare`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+CREATE TABLE `Diagnos` (
+  `idDiagnos` int(11) NOT NULL AUTO_INCREMENT,
+  `diagnos_namn` varchar(255) NOT NULL,
+  `diagnos_kategori` varchar(45) NOT NULL,
+  PRIMARY KEY (`idDiagnos`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Lakare`
+-- Dumping data for table `Diagnos`
 --
 
-LOCK TABLES `Lakare` WRITE;
-/*!40000 ALTER TABLE `Lakare` DISABLE KEYS */;
-INSERT INTO `Lakare` VALUES (6,'Le','Ly'),(7,'David','Szmak'),(8,'Carlos',' Demirovic');
-/*!40000 ALTER TABLE `Lakare` ENABLE KEYS */;
+LOCK TABLES `Diagnos` WRITE;
+/*!40000 ALTER TABLE `Diagnos` DISABLE KEYS */;
+INSERT INTO `Diagnos` VALUES (1,'Malaria','Smittsam'),(2,'Alergi','Besvär'),(3,'Rabies','Ont');
+/*!40000 ALTER TABLE `Diagnos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-04-02 23:23:08
+-- Dump completed on 2017-04-05 14:14:59

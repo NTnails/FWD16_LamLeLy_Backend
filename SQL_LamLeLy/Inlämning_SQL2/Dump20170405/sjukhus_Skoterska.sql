@@ -16,31 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Diagnos`
+-- Table structure for table `Skoterska`
 --
 
-DROP TABLE IF EXISTS `Diagnos`;
+DROP TABLE IF EXISTS `Skoterska`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Diagnos` (
-  `idDiagnos` int(11) NOT NULL AUTO_INCREMENT,
-  `diagnos_namn` varchar(255) NOT NULL,
-  `diagnos_kategori` varchar(45) NOT NULL,
-  `idMedicin` int(11) NOT NULL,
-  PRIMARY KEY (`idDiagnos`),
-  KEY `fk_Diagnos_Medicin1_idx` (`idMedicin`),
-  CONSTRAINT `fk_Diagnos_Medicin1` FOREIGN KEY (`idMedicin`) REFERENCES `Medicin` (`idMedicin`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE `Skoterska` (
+  `idSkoterska` int(11) NOT NULL AUTO_INCREMENT,
+  `skoterska_namn` varchar(45) NOT NULL,
+  `skoterska_efternamn` varchar(45) NOT NULL,
+  PRIMARY KEY (`idSkoterska`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Diagnos`
+-- Dumping data for table `Skoterska`
 --
 
-LOCK TABLES `Diagnos` WRITE;
-/*!40000 ALTER TABLE `Diagnos` DISABLE KEYS */;
-INSERT INTO `Diagnos` VALUES (1,'Rabies','Ont',3),(2,'Malaria','Smittsam',1),(3,'Alergi','Besvär',2);
-/*!40000 ALTER TABLE `Diagnos` ENABLE KEYS */;
+LOCK TABLES `Skoterska` WRITE;
+/*!40000 ALTER TABLE `Skoterska` DISABLE KEYS */;
+INSERT INTO `Skoterska` VALUES (1,'Angelica','Gaintatzi'),(2,'Dragana','Jankovic'),(3,'Malena','Brinkheden');
+/*!40000 ALTER TABLE `Skoterska` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-04-02 23:23:08
+-- Dump completed on 2017-04-05 14:14:59

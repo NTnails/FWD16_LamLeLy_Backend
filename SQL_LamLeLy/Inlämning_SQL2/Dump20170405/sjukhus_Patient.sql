@@ -24,12 +24,12 @@ DROP TABLE IF EXISTS `Patient`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Patient` (
   `idPatient` int(11) NOT NULL AUTO_INCREMENT,
-  `namn` varchar(45) NOT NULL,
-  `efternamn` varchar(45) NOT NULL,
-  `Lakare_idLakare` int(11) NOT NULL,
+  `patient_namn` varchar(45) NOT NULL,
+  `patient_efternamn` varchar(45) NOT NULL,
+  `fk_idLakare` int(11) DEFAULT NULL,
   PRIMARY KEY (`idPatient`),
-  KEY `fk_Patient_Lakare1_idx` (`Lakare_idLakare`),
-  CONSTRAINT `fk_Patient_Lakare1` FOREIGN KEY (`Lakare_idLakare`) REFERENCES `Lakare` (`idLakare`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `fk_Patient_Lakare1_idx` (`fk_idLakare`),
+  CONSTRAINT `fk_Patient_Lakare1` FOREIGN KEY (`fk_idLakare`) REFERENCES `Lakare` (`idLakare`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -39,7 +39,7 @@ CREATE TABLE `Patient` (
 
 LOCK TABLES `Patient` WRITE;
 /*!40000 ALTER TABLE `Patient` DISABLE KEYS */;
-INSERT INTO `Patient` VALUES (1,'Kalle','Anka',6),(2,'Musse','Pigg',7),(3,'Lång','Ben',8),(4,'Smurf','Blå',6),(5,'Tom','Mus',7),(6,'Jerry','Katt',8),(7,'King','Kong',6),(8,'X','Men',7);
+INSERT INTO `Patient` VALUES (1,'Kalle','Anka',2),(2,'Musse','Pigg',3),(3,'Lång','Ben',1),(4,'Smurf','Blå',1),(5,'Tom','Mus',2),(6,'Jerry','Katt',3),(7,'King','Kong',2),(8,'X','Men',1);
 /*!40000 ALTER TABLE `Patient` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-04-02 23:23:08
+-- Dump completed on 2017-04-05 14:14:59

@@ -16,31 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Patient_Skoterska`
+-- Table structure for table `Medicin`
 --
 
-DROP TABLE IF EXISTS `Patient_Skoterska`;
+DROP TABLE IF EXISTS `Medicin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Patient_Skoterska` (
-  `idPatient` int(11) NOT NULL,
-  `idSkoterska` int(11) NOT NULL,
-  PRIMARY KEY (`idPatient`,`idSkoterska`),
-  KEY `fk_Patient_has_Skoterska_Skoterska1_idx` (`idSkoterska`),
-  KEY `fk_Patient_has_Skoterska_Patient1_idx` (`idPatient`),
-  CONSTRAINT `fk_Patient_has_Skoterska_Patient1` FOREIGN KEY (`idPatient`) REFERENCES `Patient` (`idPatient`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Patient_has_Skoterska_Skoterska1` FOREIGN KEY (`idSkoterska`) REFERENCES `Skoterska` (`idSkoterska`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `Medicin` (
+  `idMedicin` int(11) NOT NULL AUTO_INCREMENT,
+  `medicin_namn` varchar(225) NOT NULL,
+  `medicin_doz` int(11) NOT NULL,
+  `fk_idDiagnos` int(11) NOT NULL,
+  PRIMARY KEY (`idMedicin`),
+  KEY `fk_Medicin_Diagnos1_idx` (`fk_idDiagnos`),
+  CONSTRAINT `fk_Medicin_Diagnos1` FOREIGN KEY (`fk_idDiagnos`) REFERENCES `Diagnos` (`idDiagnos`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Patient_Skoterska`
+-- Dumping data for table `Medicin`
 --
 
-LOCK TABLES `Patient_Skoterska` WRITE;
-/*!40000 ALTER TABLE `Patient_Skoterska` DISABLE KEYS */;
-INSERT INTO `Patient_Skoterska` VALUES (4,1),(6,1),(8,1),(2,2),(3,2),(7,2),(1,3),(5,3);
-/*!40000 ALTER TABLE `Patient_Skoterska` ENABLE KEYS */;
+LOCK TABLES `Medicin` WRITE;
+/*!40000 ALTER TABLE `Medicin` DISABLE KEYS */;
+INSERT INTO `Medicin` VALUES (1,'Alvedon',100,3),(2,'Ipren',200,2),(3,'Panodin',150,1);
+/*!40000 ALTER TABLE `Medicin` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-04-02 23:23:08
+-- Dump completed on 2017-04-05 14:14:59

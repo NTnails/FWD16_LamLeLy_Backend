@@ -16,28 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Skoterska`
+-- Table structure for table `Patient_Diagnos`
 --
 
-DROP TABLE IF EXISTS `Skoterska`;
+DROP TABLE IF EXISTS `Patient_Diagnos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Skoterska` (
-  `idSkoterska` int(11) NOT NULL AUTO_INCREMENT,
-  `namn` varchar(45) NOT NULL,
-  `efternamn` varchar(45) NOT NULL,
-  PRIMARY KEY (`idSkoterska`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+CREATE TABLE `Patient_Diagnos` (
+  `fk_Patient_idPatient` int(11) NOT NULL,
+  `fk_Diagnos_idDiagnos` int(11) NOT NULL,
+  `Patient_Diagnos` int(11) NOT NULL,
+  PRIMARY KEY (`Patient_Diagnos`),
+  KEY `fk_Patient_has_Diagnos_Diagnos1_idx` (`fk_Diagnos_idDiagnos`),
+  KEY `fk_Patient_has_Diagnos_Patient1_idx` (`fk_Patient_idPatient`),
+  CONSTRAINT `fk_Patient_has_Diagnos_Diagnos1` FOREIGN KEY (`fk_Diagnos_idDiagnos`) REFERENCES `Diagnos` (`idDiagnos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Patient_has_Diagnos_Patient1` FOREIGN KEY (`fk_Patient_idPatient`) REFERENCES `Patient` (`idPatient`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Skoterska`
+-- Dumping data for table `Patient_Diagnos`
 --
 
-LOCK TABLES `Skoterska` WRITE;
-/*!40000 ALTER TABLE `Skoterska` DISABLE KEYS */;
-INSERT INTO `Skoterska` VALUES (1,'Angelica','Gaintatzi'),(2,'Dragana','Jankovic'),(3,'Malena','Brinkheden');
-/*!40000 ALTER TABLE `Skoterska` ENABLE KEYS */;
+LOCK TABLES `Patient_Diagnos` WRITE;
+/*!40000 ALTER TABLE `Patient_Diagnos` DISABLE KEYS */;
+INSERT INTO `Patient_Diagnos` VALUES (1,2,1),(2,1,2),(3,3,3),(4,3,4),(5,2,5),(6,1,6),(7,2,7),(8,2,8);
+/*!40000 ALTER TABLE `Patient_Diagnos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-04-02 23:23:09
+-- Dump completed on 2017-04-05 14:14:59
