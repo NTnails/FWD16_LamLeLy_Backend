@@ -90,7 +90,7 @@ användare inte lägger till författare som inte existerar-->
 
 $fl_iddirector="";
 while($director = $directorQuery->fetch()) { 
-if ($director['id'] == $directorid) { 
+if ($director['iddirector'] == $fl_iddirector) { 
 //The author is currently associated to the joke, select it by default 
 echo "<option value=\"{$director['iddirector']}\" selected>{$director['name']}</option>"; 
 } else { 
