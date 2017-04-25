@@ -1,0 +1,71 @@
+--
+-- Struktur för tabell `directors`
+--
+
+CREATE TABLE IF NOT EXISTS `directors` (
+  `iddirectors` int(11) NOT NULL auto_increment,
+  `name` varchar(45) default NULL,
+  `state` varchar(45) default NULL,
+  `gender` varchar(45) default NULL,
+  `email` varchar(25) NOT NULL,
+  `pass` varchar(40) NOT NULL,
+  PRIMARY KEY  (`iddirectors`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+
+--
+-- Data i tabell `directors`
+--
+
+INSERT INTO `directors` (`iddirectors`, `name`, `state`, `gender`, `email`, `pass`) VALUES
+(1, 'Sohail', 'Stockholm', 'male', '', ''),
+(2, 'David', 'Malmo', 'male', '', ''),
+(3, 'Carlos', 'Helsingborg', 'male', '', ''),
+(4, 'Lam le Ly', NULL, NULL, 'lylamle78@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur för tabell `films`
+--
+
+CREATE TABLE IF NOT EXISTS `films` (
+  `idfilms` int(11) NOT NULL auto_increment,
+  `title` varchar(45) default NULL,
+  `description` varchar(40) NOT NULL,
+  `duration` int(4) NOT NULL,
+  `rating` varchar(5) NOT NULL,
+  `date` date default NULL,
+  `fl_iddirectors` int(11) default NULL,
+  PRIMARY KEY  (`idfilms`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Data i tabell `films`
+--
+
+INSERT INTO `films` (`idfilms`, `title`, `description`, `duration`, `rating`, `date`, `fl_iddirectors`) VALUES
+(1, 'youtube', '', 0, '', '2017-04-10', 1),
+(2, 'redtube', '', 0, '', '2017-04-02', 3),
+(3, '4tube', '', 0, '', '2017-04-03', 2),
+(4, 'xhamster', '', 0, '', '2017-04-05', 3),
+(5, 'dreamfilms', '', 0, '', '2017-04-06', 2);
+
+
+---------------------------------------------------
+
+CREATE PROCEDURE `sp_show_all_films2`()
+SELECT 
+        films.idfilms,
+        films.title AS title,
+        films.description AS description,
+        films.duration AS duration,
+        films.rating AS rating,
+        films.date AS date,
+        directors.name AS name,
+        directors.gender AS gender,
+        directors.state AS state
+        
+    FROM
+        (directors
+        JOIN films ON ((directors.iddirectors = 
+        films.fl_iddirectors)))
