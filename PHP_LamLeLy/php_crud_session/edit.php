@@ -160,20 +160,20 @@ td {
 <br/><br/> 
 
 <form name="form1" method="post" action="edit.php"> 
-<table border="0"> 
+        <table  border="0">
 <tr> 
 <!-- Resultatet av vår sql fråga från rad34 lägger vi en textarea, man kan alltid
 blanda html och php som ni ser, genom att flika in php taggar som start och slut-->
-<td>
-Title <br><input type='text' name="title" > <?php echo $title;?>
+<td> 
+Title: <?php echo $title;?> <br><input type='text' name="title" > 
 <br><br>
-Description <br><input type='text' name="description" > <?php echo $description;?>
+Description: <?php echo $description;?> <br><input type='text' name="description" > 
 <br><br>
-Duration: min <br><input type='number' name="duration" > <?php echo $duration;?>
+Duration:  <?php echo $duration;?> min <br><input type='number' name="duration" > 
 <br><br>
-Rating: *** <br><input type='text' name="rating" > <?php echo $rating;?>
+Rating: <?php echo $rating;?> <br><input type='text' name="rating" > 
 <br><br>
-Date <br><input type='date' name="date" > <?php echo $date;?>
+Date: <?php echo $date;?> <br><input type='date' name="date" > 
 <br><br>
 </td>
 </tr> 
