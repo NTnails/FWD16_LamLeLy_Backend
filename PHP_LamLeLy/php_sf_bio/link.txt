@@ -1,0 +1,29 @@
+http://www.icloudis.com/kyh_students/LeHoaLuong/crud_session
+
+
+
+
+---
+CREATE PROCEDURE `sp_movies`()
+SELECT 
+        movie.movieId,
+        movie.movieName AS movieName,
+        movie.movieDuration AS movieDuration,
+        movie.movieCopies AS movieCopies,
+        category.categoryId,
+        category.categoryName AS categoryName
+        
+    FROM
+        (category
+        JOIN movie ON ((category.categoryId = 
+        movie.fk_categoryId)))
+
+-----
+CREATE PROCEDURE `sp_categories`()
+SELECT 
+        
+        category.categoryId,
+        category.categoryName AS categoryName
+        
+    FROM
+category
