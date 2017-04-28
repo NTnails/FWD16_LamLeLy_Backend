@@ -1,0 +1,23 @@
+CREATE PROCEDURE `sp_aeroplane`()
+SELECT 
+        aeroplane.aeroplaneId,
+        aeroplane.aeroplaneName AS aeroplaneName,
+        aeroplane.aeroplaneTopSpeed AS aeroplaneTopSpeed,
+        aeroplane.aeroplaneRange AS aeroplaneRange,
+        plane_maker.planeMakerID,
+        plane_maker.planeMakerName AS planeMakerName
+        
+    FROM
+        (plane_maker
+        JOIN aeroplane ON ((plane_maker.planeMakerID = 
+        aeroplane.planeMakerID)));
+
+-----
+CREATE PROCEDURE `sp_planemaker`()
+SELECT 
+        
+        plane_maker.planeMakerID,
+        plane_maker.planeMakerName AS planeMakerName
+        
+    FROM
+plane_maker

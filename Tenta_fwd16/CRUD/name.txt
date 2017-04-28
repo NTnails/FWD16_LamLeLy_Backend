@@ -1,0 +1,16 @@
+tabell: aeroplane
+aeroplaneID
+aeroplaneName
+aeroplaneTopSpeed
+aeroplaneRange
+
+
+tanbel: plane_maker
+planeMakerID
+planeMakerName
+
+tabell: user
+id
+name 
+email
+pass
